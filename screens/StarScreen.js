@@ -1,26 +1,20 @@
-import React from 'react'
-import Router from 'react-native-easy-router'
-import { StyleSheet, View } from "react-native"
+import React, { Component } from 'react'
+import { StyleSheet, View, Text, Button } from "react-native"
+import {
+    createBottomTabNavigator,
+    createStackNavigator,
+    createAppContainer,
+} from 'react-navigation';
 
-const Star = (children) => {
-    return (
-        <View
-            style={styles.container}
-        >
-            {children}
-        </View>
-    )
+class StarScreen extends React.Component {
+    render() {
+        return (
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <Text>Star!</Text>
+            </View>
+        );
+    }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        alignItems: 'center',
-        backgroundColor: "yellow",
-        display: 'flex',
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'space-around'
-    }
-})
 
-export default Star
+export default StarScreen

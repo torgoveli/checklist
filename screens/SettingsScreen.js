@@ -1,26 +1,23 @@
-import React from 'react'
-import Router from 'react-native-easy-router'
-import { StyleSheet, View } from "react-native"
+import React, { Component } from 'react'
+import { StyleSheet, View, Text, Button, Image } from "react-native"
+import {
+    createBottomTabNavigator,
+    createStackNavigator,
+    createAppContainer,
+} from 'react-navigation';
 
-const Settings = (children) => {
-    return (
-        <View
-            style={styles.container}
-        >
-            {children}
-        </View>
-    )
+class SettingsScreen extends React.Component {
+    render() {
+        return (
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                {/* other code from before here */}
+                <Button
+                    title="Go to Star in Settings"
+                    onPress={() => this.props.navigation.navigate('Star')}
+                />
+            </View>
+        );
+    }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        alignItems: 'center',
-        backgroundColor: "red",
-        display: 'flex',
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'space-around'
-    }
-})
-
-export default Settings
+export default SettingsScreen

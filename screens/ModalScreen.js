@@ -1,20 +1,14 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Text, Button, Image } from "react-native"
-import {
-    createBottomTabNavigator,
-    createStackNavigator,
-    createAppContainer,
-} from 'react-navigation';
+import { createStackNavigator, createAppContainer } from 'react-navigation'
 
-
-class HomeScreen extends Component {
+class ModalScreen extends React.Component {
     render() {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Home Screen</Text>
+                <Text>Modal Screen</Text>
             </View>
         );
     }
 }
-
-export default HomeScreen
+export default ModalScreen
