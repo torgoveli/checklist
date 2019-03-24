@@ -1,35 +1,30 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Text, Button, Image, TouchableOpacity } from "react-native"
-import { ForwardButton } from "./Elements"
+import { StyleSheet, View, Text, Image } from "react-native"
+import { ForwardButton } from "./"
 
 
-class BlockTemplate extends Component {
+export default class BlockTemplateSmall extends Component {
 
     render() {
         const {
             containerWrapper,
             container,
-            containerWrapperLarge,
             img,
-            imgLarge,
             header,
-            headerLarge,
             title,
-            titleLarge,
             description,
-            descriptionLarge
         } = styles
 
         return (
-            <View style={[containerWrapper, this.props.large && containerWrapperLarge]}>
+            <View style={containerWrapper}>
                 <View style={container}>
                     <View>
-                        <Image style={[img, this.props.large && imgLarge]}
+                        <Image style={img}
                                source={require('./../img/example_avatar_checklist.jpg')}/>
                     </View>
-                    <View style={[header, this.props.large && headerLarge]}>
-                        <Text style={[title, this.props.large && titleLarge]}>{this.props.title}</Text>
-                        <Text style={[description, this.props.large && descriptionLarge]}>{this.props.desc}</Text>
+                    <View style={header}>
+                        <Text style={title}>{this.props.title}</Text>
+                        <Text style={description}>{this.props.desc}</Text>
 
                     </View>
                     <View>
@@ -41,7 +36,6 @@ class BlockTemplate extends Component {
         )
     }
 }
-
 
 const styles = StyleSheet.create({
     containerWrapper: {
@@ -85,25 +79,5 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: '#8A8A8F'
 
-    },
-    containerWrapperLarge: {
-        height: 120,
-    },
-    imgLarge: {
-        height: 90,
-        width: 90,
-        borderRadius: 45
-    },
-    headerLarge: {
-        marginLeft: 22.5,
-    },
-    titleLarge: {
-        fontSize: 24,
-    },
-    descriptionLarge: {
-        fontSize: 18,
-
     }
 })
-
-export default BlockTemplate

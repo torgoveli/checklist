@@ -1,14 +1,22 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Text, Button, Image } from "react-native"
-import { createStackNavigator, createAppContainer } from 'react-navigation'
+import {View, Text, Button } from "react-native"
 
-class TemplateDetailsScreen extends React.Component {
+export default class TemplateDetailsScreen extends Component {
+    static navigationOptions = ({ navigation }) => ({
+        title: navigation.state.params.title,
+        headerRight: (
+            <Button
+                title="Edit"
+                onPress={() => navigation.navigate('TemplateDetailsEdit')}
+            />
+        )
+    })
     render() {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Modal Screen</Text>
+                <Text>TemplateDetailsScreen</Text>
             </View>
         );
     }
 }
-export default TemplateDetailsScreen
+

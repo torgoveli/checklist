@@ -1,21 +1,18 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { Text, View, StyleSheet, Image, Button } from 'react-native'
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import { createStackNavigator, createAppContainer } from "react-navigation"
+import RoutesService from './services/RoutesService'
+import NavigationService from './services/NavigationService'
 
-import RootStack from "./screens"
-
-const AppContainer = createAppContainer(RootStack);
+const AppContainer = createAppContainer(RoutesService)
 
 export default class App extends React.Component {
     render() {
-        return <AppContainer />;
+        return (
+            <AppContainer ref={navigatorRef => {
+                NavigationService.setTopLevelNavigator(navigatorRef)
+            }}/>
+        )
     }
 }
-
-// const styles = StyleSheet.create({
-//     container: {
-//         flex : 1,
-//         backgroundColor : 'green'
-//     }
-// })
 

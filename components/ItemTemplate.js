@@ -1,22 +1,25 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Text, Button, Image, TouchableOpacity } from "react-native"
-import { ForwardButton } from "./Elements"
+import { ForwardButton } from "./"
 
 
-class ItemTemplate extends Component {
+
+export default class ItemTemplate extends Component {
     render() {
         return (
-            <View style={styles.containerWrapper}>
-                <View style={styles.container}>
-                    <View style={styles.header}>
-                        <Text style={styles.title}>test</Text>
-                        <Text style={styles.description}>desc</Text>
-                    </View>
-                    <View>
-                        <ForwardButton/>
+            <TouchableOpacity>
+                <View style={styles.containerWrapper}>
+                    <View style={styles.container}>
+                        <View style={styles.header}>
+                            <Text style={styles.title}>test</Text>
+                            <Text style={styles.description}>desc</Text>
+                        </View>
+                        <View>
+                            <ForwardButton/>
+                        </View>
                     </View>
                 </View>
-            </View>
+            </TouchableOpacity>
         )
     }
 }
@@ -61,4 +64,3 @@ const styles = StyleSheet.create({
     }
 })
 
-export default ItemTemplate
