@@ -1,56 +1,58 @@
 import React from "react"
-// import Ionicons from 'react-native-vector-icons/Ionicons'
+import Icon from 'react-native-vector-icons/Ionicons'
 import {
     createStackNavigator,
     createAppContainer,
-} from 'react-navigation';
+    createBottomTabNavigator
+} from 'react-navigation'
 
 import HomeScreen from "./HomeScreen"
-// import StarScreen from "./StarScreen"
-// import ModalScreen from "./ModalScreen"
-// import SettingsScreen from "./SettingsScreen"
+import ChecklistsScreen from "./ChecklistsScreen"
+import TemplateScreen from "./TemplateScreen"
+import StarScreen from "./StarScreen"
+import TemplateDetailsScreen from "./TemplateDetailsScreen"
 
 const HomeStack = createStackNavigator({
     Home: HomeScreen,
-    // Star: StarScreen,
+    Template: TemplateScreen,
+    TemplateDetails: TemplateDetailsScreen,
 })
+HomeStack.navigationOptions = {
+    tabBarLabel: 'Шаблоны',
+}
 
-// const SettingsStack = createStackNavigator({
-//     Settings: SettingsScreen,
-//     Star: StarScreen,
-// })
+const ChecklistsStack = createStackNavigator({
+    Checklists: ChecklistsScreen,
+    Star: StarScreen,
+})
+ChecklistsStack.navigationOptions = {
+    tabBarLabel: 'Чек-листы',
+}
 
 
-
-export default createAppContainer(HomeStack);
-// export default createAppContainer(createBottomTabNavigator(
-//     {
-//         Home: HomeStack,
-//         Settings: SettingsStack,
-//     },
-//     {
-//         defaultNavigationOptions: ({ navigation }) => ({
-//             tabBarIcon: ({ focused, horizontal, tintColor }) => {
-//                 const { routeName } = navigation.state
-//                 let IconComponent = Ionicons
-//                 let iconName
-//                 if (routeName === 'Home') {
-//                     iconName = `ios-information-circle${focused ? '' : '-outline'}`
-//                     // Sometimes we want to add badges to some icons.
-//                     // You can check the implementation below.
-//                 } else if (routeName === 'Star') {
-//                     iconName = `ios-options`
-//                 }
-//
-//                 // You can return any component that you like here!
-//                 return <IconComponent name={iconName} size={25} color={tintColor}/>
-//             },
-//         }),
-//         tabBarOptions: {
-//             activeTintColor: 'tomato',
-//             inactiveTintColor: 'gray',
-//         },
-//     })
-// )
+export default createAppContainer(createBottomTabNavigator(
+    {
+        Home: HomeStack,
+        Checklists: ChecklistsStack,
+    },
+    {
+        defaultNavigationOptions: ({ navigation }) => ({
+            tabBarIcon: ({ focused, horizontal, tintColor }) => {
+                let { routeName } = navigation.state
+                let iconName
+                if (routeName === 'Home') {
+                    iconName = 'ios-albums'
+                } else if (routeName === 'Checklists') {
+                    iconName = `ios-list${focused ? '-box' : ''}`
+                }
+                return <Icon name={iconName} size={28} color={tintColor}/>
+            },
+        }),
+        tabBarOptions: {
+            activeTintColor: '#007AFF',
+            inactiveTintColor: '#999999',
+        },
+    })
+)
 
 

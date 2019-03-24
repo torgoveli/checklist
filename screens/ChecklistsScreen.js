@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Text, Button, Image } from "react-native"
-import {
-    createBottomTabNavigator,
-    createStackNavigator,
-    createAppContainer,
-} from 'react-navigation';
+import { View, Button} from "react-native"
 
-class SettingsScreen extends React.Component {
+class ChecklistsScreen extends Component {
+    static navigationOptions = {
+        title: 'Чек-листы',
+    };
     render() {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -20,4 +18,4 @@ class SettingsScreen extends React.Component {
     }
 }
 
-export default SettingsScreen
+export default ChecklistsScreen

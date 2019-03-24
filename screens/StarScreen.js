@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Text, Button } from "react-native"
-import {
-    createBottomTabNavigator,
-    createStackNavigator,
-    createAppContainer,
-} from 'react-navigation';
+import { StyleSheet, View, Text } from "react-native"
 
-class StarScreen extends React.Component {
+class StarScreen extends Component {
+    static navigationOptions = {
+        title: 'Звезда',
+    };
     render() {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
